@@ -5,9 +5,12 @@ import com.javachess.Constants;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -38,10 +41,26 @@ public class Piece {
 
         return resizedImg;
     }
+    private void setAction() {
+        iconLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("My Goodness, this is so concise");
+                showPossibleMoves();
+            }
+        });
+    }
+    private void showPossibleMoves() {
+        // TODO
+    }
     public Piece(PieceColor pieceColor, String pathToPiece) {
         color = pieceColor;
         try {
             setIconLabel(pathToPiece);
+            Cursor cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+            iconLabel.setCursor(cursor);
+            setAction();
         } catch (IOException e) {
             e.printStackTrace();
         }
