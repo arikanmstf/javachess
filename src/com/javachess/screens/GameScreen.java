@@ -26,12 +26,13 @@ public class GameScreen {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+                Integer index = (i*8)+j;
                 Color color = ((i % 2 == 0) && (j % 2 == 0) || (i % 2 == 1) && (j % 2 == 1)) ?
                         Constants.LightSquareColor : Constants.DarkSquareColor;
-                Square square = new Square(color);
+                Square square = new Square(color, index);
                 panel1.add(square);
                 square.setVisible(true);
-                squares[(i*8)+j] = square;
+                squares[index] = square;
             }
         }
         new GamePosition(squares);

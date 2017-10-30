@@ -5,18 +5,20 @@ import javax.swing.JPanel;
 import java.awt.Color;
 
 public class Square extends JPanel {
-    public Square(Color color) {
+    public Integer index;
+    public Square(Color color, Integer i) {
         super();
-        this.initialize(color);
+        index = i;
+        initialize(color);
     }
 
     private void initialize(Color color) {
 
-        this.setOpaque(true);
-        this.setBackground(color);
-        this.setPreferredSize(Constants.SquareSize);
-        this.setMaximumSize(Constants.SquareSize);
-        this.setMinimumSize(Constants.SquareSize);
-        this.setVisible(true);
+        setOpaque(true);
+        setBackground(color);
+        setPreferredSize(Constants.SquareSize);
+        setMaximumSize(Constants.SquareSize);
+        setMinimumSize(Constants.SquareSize);
+        setVisible(true);
     }
 }

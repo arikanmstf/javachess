@@ -1,5 +1,6 @@
 package com.javachess.board;
 
+import com.javachess.pieces.Piece;
 import com.javachess.pieces.PieceBishop;
 import com.javachess.pieces.PieceColor;
 import com.javachess.pieces.PieceKing;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePosition {
-    List<PiecePosition> piecePositions = new ArrayList<>();
+    public List<PiecePosition> piecePositions = new ArrayList<>();
     public GamePosition(Square[] squares) {
         startPosition(squares);
     }
@@ -52,6 +53,8 @@ public class GamePosition {
         piecePositions.add( new PiecePosition(squares[61], new PieceBishop(new PieceColor())));
         piecePositions.add( new PiecePosition(squares[62], new PieceKnight(new PieceColor())));
         piecePositions.add( new PiecePosition(squares[63], new PieceRook(new PieceColor())));
+
+        Piece.setPiecePositions(piecePositions);
 
     }
 }

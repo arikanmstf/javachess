@@ -1,10 +1,13 @@
 package com.javachess.pieces;
 
 import com.javachess.Constants;
+import com.javachess.board.PiecePosition;
+import com.javachess.board.Square;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -15,10 +18,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Piece {
+public class Piece implements PieceInterface{
     public JLabel iconLabel;
     private PieceColor color;
+    protected static List<PiecePosition> piecePositions;
+    protected Square square;
 
     private void setIconLabel(String pathToPiece) throws IOException {
         BufferedImage myPicture = null;
@@ -46,13 +53,28 @@ public class Piece {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                System.out.println("My Goodness, this is so concise");
+                int [] rowAndCol = getRowAndColFromIndex(square.index);
+                System.out.println(rowAndCol[0]);
+                System.out.println(rowAndCol[1]);
                 showPossibleMoves();
             }
         });
     }
-    private void showPossibleMoves() {
-        // TODO
+    protected static int[] getRowAndColFromIndex(Integer index) {
+        int j = index % 8;
+        int i = index/8;
+        int [] rowAndCol = new int[2];
+        rowAndCol[0] = i;
+        rowAndCol[1] = j;
+        return rowAndCol;
+    }
+    public static void setPiecePositions(List<PiecePosition> p) {
+        piecePositions = p;
+    }
+
+    @Override
+    public List<PieceMove> getPossibleMoves() {
+        return new ArrayList<>();
     }
     public Piece(PieceColor pieceColor, String pathToPiece) {
         color = pieceColor;
@@ -63,6 +85,15 @@ public class Piece {
             setAction();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+    public void setSquare(Square s) {
+        square = s;
+    }
+    public void showPossibleMoves() {
+        List<PieceMove> pieceMoves = getPossibleMoves();
+        for (PieceMove object: pieceMoves) {
+            object.toSquare.setBackground(Color.magenta);
         }
     }
 }
