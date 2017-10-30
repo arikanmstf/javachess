@@ -18,13 +18,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Piece implements PieceInterface{
     public JLabel iconLabel;
-    private PieceColor color;
+    protected PieceColor color;
     protected static List<PiecePosition> piecePositions;
+    protected static Square[] squares;
     protected Square square;
 
     private void setIconLabel(String pathToPiece) throws IOException {
@@ -71,10 +71,13 @@ public class Piece implements PieceInterface{
     public static void setPiecePositions(List<PiecePosition> p) {
         piecePositions = p;
     }
+    public static void setSquares(Square[] s) {
+        squares = s;
+    }
 
     @Override
     public List<PieceMove> getPossibleMoves() {
-        return new ArrayList<>();
+        return new PieceMoveList<>();
     }
     public Piece(PieceColor pieceColor, String pathToPiece) {
         color = pieceColor;

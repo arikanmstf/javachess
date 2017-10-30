@@ -55,6 +55,7 @@ public class GamePosition {
         piecePositions.add( new PiecePosition(squares[63], new PieceRook(new PieceColor())));
 
         Piece.setPiecePositions(piecePositions);
+        Piece.setSquares(squares);
 
     }
 }

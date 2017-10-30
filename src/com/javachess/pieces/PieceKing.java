@@ -2,7 +2,6 @@ package com.javachess.pieces;
 
 import com.javachess.Constants;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PieceKing extends Piece implements PieceInterface  {
@@ -14,11 +13,36 @@ public class PieceKing extends Piece implements PieceInterface  {
     @Override
     public List<PieceMove> getPossibleMoves() {
         int index = this.square.index;
-        int[] colAndRow = getRowAndColFromIndex(index);
-        int col = colAndRow[0];
-        int row = colAndRow[1];
-        List<PieceMove> moves = new ArrayList<>();
-        moves.add(new PieceMove(this.square, Piece.piecePositions.get(0).square));
+        List<PieceMove> moves = new PieceMoveList<>();
+        int[] rowAndCol = getRowAndColFromIndex(index);
+
+        // check each possible square if exists, before add. Else, null pointer exception.
+
+        if (rowAndCol[0] < 7) {
+            moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1]]));
+            if (rowAndCol[1] > 0) {
+                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] -1]));
+            }
+            if (rowAndCol[1] < 7) {
+                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] +1]));
+            }
+        }
+        if (rowAndCol[0] > 0) {
+            moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1]]));
+            if (rowAndCol[1] > 0) {
+                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] -1]));
+            }
+            if (rowAndCol[1] < 7) {
+                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] +1]));
+            }
+        }
+        if (rowAndCol[1] > 0) {
+            moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]) *8) + rowAndCol[1] -1]));
+        }
+        if (rowAndCol[1] < 7) {
+            moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]) *8) + rowAndCol[1] +1]));
+        }
+
         return moves;
     }
 }

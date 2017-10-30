@@ -9,7 +9,6 @@ public class PiecePosition {
         square = s;
         piece = p;
         piece.setSquare(square);
-        square.add(piece.iconLabel);
-        square.revalidate();
+        square.setPiece(piece);
     }
 }
