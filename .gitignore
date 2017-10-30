@@ -1,4 +1,6 @@
-# IntelliJ
+# Intellij project files
 *.iml
-/.idea
-*.class
+*.ipr
+*.iws
+.idea/
+out/production/*
