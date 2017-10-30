@@ -1,12 +1,13 @@
-package com.javachess;
+package com.javachess.board;
 
-import com.javachess.pieces.Piece;
-
+import com.javachess.Constants;
+import com.javachess.pieces.PieceColor;
+import com.javachess.pieces.PieceKing;
 import javax.swing.JPanel;
 import java.awt.Color;
 
 public class Square extends JPanel {
-    public Piece piece = new Piece();
+    public PieceKing piece = new PieceKing(new PieceColor());
     public Square(Color color) {
         super();
         this.initialize(color);

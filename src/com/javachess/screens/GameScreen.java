@@ -1,7 +1,7 @@
 package com.javachess.screens;
 
 import com.javachess.Constants;
-import com.javachess.Square;
+import com.javachess.board.Square;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;

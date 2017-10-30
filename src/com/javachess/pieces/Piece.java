@@ -15,11 +15,12 @@ import java.net.URISyntaxException;
 
 public class Piece {
     public JLabel iconLabel;
+    private PieceColor color;
 
-    private void setIconLabel() throws IOException {
+    private void setIconLabel(String pathToPiece) throws IOException {
         BufferedImage myPicture = null;
         try {
-            myPicture = ImageIO.read(new File(getClass().getResource("/pcs/BlackKing.png").toURI()));
+            myPicture = ImageIO.read(new File(getClass().getResource(pathToPiece).toURI()));
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -37,9 +38,10 @@ public class Piece {
 
         return resizedImg;
     }
-    public Piece() {
+    public Piece(PieceColor pieceColor, String pathToPiece) {
+        color = pieceColor;
         try {
-            setIconLabel();
+            setIconLabel(pathToPiece);
         } catch (IOException e) {
             e.printStackTrace();
         }
