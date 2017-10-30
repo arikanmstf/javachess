@@ -5,9 +5,9 @@ import com.javachess.Constants;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -23,14 +23,19 @@ public class Piece {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
-        iconLabel = new JLabel(new ImageIcon(myPicture));
-        Border border = iconLabel.getBorder();
-        Border margin = new EmptyBorder(10,10,10,10);
-        iconLabel.setBorder(new CompoundBorder(border, margin));
-        iconLabel.setPreferredSize(Constants.SquareSize);
-        iconLabel.setMaximumSize(Constants.SquareSize);
-        iconLabel.setMinimumSize(Constants.SquareSize);
+        iconLabel = new JLabel(new ImageIcon(getScaledImage(myPicture, Constants.PieceWidth, Constants.PieceHeight)));
 
+
+    }
+    private Image getScaledImage(Image srcImg, int w, int h){
+        BufferedImage resizedImg = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2 = resizedImg.createGraphics();
+
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.drawImage(srcImg, 0, 0, w, h, null);
+        g2.dispose();
+
+        return resizedImg;
     }
     public Piece() {
         try {
