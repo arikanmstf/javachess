@@ -35,6 +35,16 @@ public class Constants {
     // Piece
     public static final Integer PieceWidth = 40;
     public static final Integer PieceHeight = 40;
-    public static final String PieceBlackKingPath = "/pcs/BlackKing.png";
     public static final String PieceWhiteKingPath = "/pcs/WhiteKing.png";
+    public static final String PieceBlackKingPath = "/pcs/BlackKing.png";
+    public static final String PieceWhiteQueenPath = "/pcs/WhiteQueen.png";
+    public static final String PieceBlackQueenPath = "/pcs/BlackQueen.png";
+    public static final String PieceWhiteRookPath = "/pcs/WhiteRook.png";
+    public static final String PieceBlackRookPath = "/pcs/BlackRook.png";
+    public static final String PieceWhiteBishopPath = "/pcs/WhiteBishop.png";
+    public static final String PieceBlackBishopPath = "/pcs/BlackBishop.png";
+    public static final String PieceWhiteKnightPath = "/pcs/WhiteKnight.png";
+    public static final String PieceBlackKnightPath = "/pcs/BlackKnight.png";
+    public static final String PieceWhitePawnPath = "/pcs/WhitePawn.png";
+    public static final String PieceBlackPawnPath = "/pcs/BlackPawn.png";
 }

@@ -1,6 +1,8 @@
 package com.javachess.screens;
 
 import com.javachess.Constants;
+import com.javachess.board.GamePosition;
+import com.javachess.board.PiecePosition;
 import com.javachess.board.Square;
 
 import javax.swing.BorderFactory;
@@ -10,6 +12,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 public class GameScreen {
+    public Square[] squares = new Square[64];
     public GameScreen(JPanel parentPanel) {
         JPanel mainPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         mainPanel.setBorder(BorderFactory.createEmptyBorder(-5, -5, 0, 0));
@@ -28,8 +31,10 @@ public class GameScreen {
                 Square square = new Square(color);
                 panel1.add(square);
                 square.setVisible(true);
+                squares[(i*8)+j] = square;
             }
         }
+        new GamePosition(squares);
         panel1.revalidate();
 
         mainPanel.add(panel1);
