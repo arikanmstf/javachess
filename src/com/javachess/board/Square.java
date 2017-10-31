@@ -9,6 +9,7 @@ import java.awt.Color;
 public class Square extends JPanel {
     public Integer index;
     public Piece piece;
+    public Color initialColor;
     public Square(Color color, Integer i) {
         super();
         index = i;
@@ -35,9 +36,9 @@ public class Square extends JPanel {
     }
 
     private void initialize(Color color) {
-
+        initialColor = color;
         setOpaque(true);
-        setBackground(color);
+        setBackground(initialColor);
         setPreferredSize(Constants.SquareSize);
         setMaximumSize(Constants.SquareSize);
         setMinimumSize(Constants.SquareSize);

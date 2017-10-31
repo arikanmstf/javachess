@@ -52,9 +52,6 @@ public class Piece implements PieceInterface{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                int [] rowAndCol = getRowAndColFromIndex(index);
-                System.out.println(rowAndCol[0]);
-                System.out.println(rowAndCol[1]);
                 showPossibleMoves();
             }
         });
@@ -91,6 +88,11 @@ public class Piece implements PieceInterface{
     }
     private void showPossibleMoves() {
         List<PieceMove> pieceMoves = getPossibleMoves();
+        for (int i = 0; i < Piece.squares.length; i++) {
+            if (Piece.squares[i].initialColor != Piece.squares[i].getBackground()){
+                Piece.squares[i].setBackground(Piece.squares[i].initialColor);
+            }
+        }
         for (PieceMove object: pieceMoves) {
             object.toSquare.setBackground(Color.magenta);
         }
