@@ -14,9 +14,9 @@ public class PieceMoveList<E> extends ArrayList<E> {
         return false;
     }
     private boolean isMoveValid(PieceMove pm) {
-        if(pm.toSquare.piece != null && pm.fromSquare.piece.color.getColor() == pm.toSquare.piece.color.getColor()) {
-            return false;
-        }
-        return true;
+        return !(
+                (pm.toSquare.piece != null && // if the square is not empty
+                        pm.fromSquare.piece.color.getColor() == pm.toSquare.piece.color.getColor()) // and if the square has same colored piece
+        );
     }
 }

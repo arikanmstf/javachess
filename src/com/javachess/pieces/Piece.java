@@ -1,7 +1,6 @@
 package com.javachess.pieces;
 
 import com.javachess.Constants;
-import com.javachess.board.PiecePosition;
 import com.javachess.board.Square;
 
 import javax.imageio.ImageIO;
@@ -22,10 +21,10 @@ import java.util.List;
 
 public class Piece implements PieceInterface{
     public JLabel iconLabel;
-    protected PieceColor color;
-    protected static List<PiecePosition> piecePositions;
-    protected static Square[] squares;
-    protected Square square;
+    PieceColor color;
+    static Square[] squares;
+    int index;
+    boolean neverMoved = true;
 
     private void setIconLabel(String pathToPiece) throws IOException {
         BufferedImage myPicture = null;
@@ -53,14 +52,14 @@ public class Piece implements PieceInterface{
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                int [] rowAndCol = getRowAndColFromIndex(square.index);
+                int [] rowAndCol = getRowAndColFromIndex(index);
                 System.out.println(rowAndCol[0]);
                 System.out.println(rowAndCol[1]);
                 showPossibleMoves();
             }
         });
     }
-    protected static int[] getRowAndColFromIndex(Integer index) {
+    static int[] getRowAndColFromIndex(int index) {
         int j = index % 8;
         int i = index/8;
         int [] rowAndCol = new int[2];
@@ -68,11 +67,11 @@ public class Piece implements PieceInterface{
         rowAndCol[1] = j;
         return rowAndCol;
     }
-    public static void setPiecePositions(List<PiecePosition> p) {
-        piecePositions = p;
-    }
     public static void setSquares(Square[] s) {
         squares = s;
+    }
+    public void setIndex(int i) {
+        index = i;
     }
 
     @Override
@@ -90,10 +89,7 @@ public class Piece implements PieceInterface{
             e.printStackTrace();
         }
     }
-    public void setSquare(Square s) {
-        square = s;
-    }
-    public void showPossibleMoves() {
+    private void showPossibleMoves() {
         List<PieceMove> pieceMoves = getPossibleMoves();
         for (PieceMove object: pieceMoves) {
             object.toSquare.setBackground(Color.magenta);

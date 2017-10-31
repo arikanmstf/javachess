@@ -11,7 +11,6 @@ public class PieceKnight extends Piece implements PieceInterface {
 
     @Override
     public List<PieceMove> getPossibleMoves() {
-        int index = this.square.index;
         List<PieceMove> moves = new PieceMoveList<>();
         int[] rowAndCol = getRowAndColFromIndex(index);
 
@@ -20,32 +19,32 @@ public class PieceKnight extends Piece implements PieceInterface {
         if (rowAndCol[0] < 7) {
             if (rowAndCol[0] < 6) {
                 if (rowAndCol[1] > 0) {
-                    moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+2) *8) + rowAndCol[1] -1]));
+                    moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]+2) *8) + rowAndCol[1] -1]));
                 }
                 if (rowAndCol[1] < 7) {
-                    moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+2) *8) + rowAndCol[1] +1]));
+                    moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]+2) *8) + rowAndCol[1] +1]));
                 }
             }
             if (rowAndCol[1] < 6) {
-                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] +2]));
+                moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] +2]));
             }
             if (rowAndCol[1] > 1) {
-                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] -2]));
+                moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]+1) *8) + rowAndCol[1] -2]));
             }
         }
         if (rowAndCol[0] > 0){
             if (rowAndCol[1] < 6) {
-                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] +2]));
+                moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] +2]));
             }
             if (rowAndCol[1] > 1) {
-                moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] -2]));
+                moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]-1) *8) + rowAndCol[1] -2]));
             }
             if (rowAndCol[0] > 2) {
                 if (rowAndCol[1] > 0) {
-                    moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-2) *8) + rowAndCol[1] -1]));
+                    moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]-2) *8) + rowAndCol[1] -1]));
                 }
                 if (rowAndCol[1] < 7) {
-                    moves.add(new PieceMove(this.square, Piece.squares[((rowAndCol[0]-2) *8) + rowAndCol[1] +1]));
+                    moves.add(new PieceMove(Piece.squares[index], Piece.squares[((rowAndCol[0]-2) *8) + rowAndCol[1] +1]));
                 }
             }
         }

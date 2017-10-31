@@ -12,7 +12,7 @@ public class PieceRook extends Piece implements PieceInterface {
     @Override
     public List<PieceMove> getPossibleMoves() {
         // moves calculation at another method because will be used by PieceQueen
-        return PieceRook.calculatePossibleMoves(this.square);
+        return PieceRook.calculatePossibleMoves(Piece.squares[index]);
     }
 
     public static List<PieceMove> calculatePossibleMoves(Square square) {

@@ -10,8 +10,8 @@ public class PieceQueen extends Piece implements PieceInterface {
     @Override
     public List<PieceMove> getPossibleMoves() {
         // Queen move is the easiest ! join Bishop and Rook moves !
-        List<PieceMove> moves = PieceBishop.calculatePossibleMoves(this.square);
-        moves.addAll(PieceRook.calculatePossibleMoves(this.square));
+        List<PieceMove> moves = PieceBishop.calculatePossibleMoves(Piece.squares[index]);
+        moves.addAll(PieceRook.calculatePossibleMoves(Piece.squares[index]));
         return moves;
     }
 }

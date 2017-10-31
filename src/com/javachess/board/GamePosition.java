@@ -9,53 +9,46 @@ import com.javachess.pieces.PiecePawn;
 import com.javachess.pieces.PieceQueen;
 import com.javachess.pieces.PieceRook;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GamePosition {
-    public List<PiecePosition> piecePositions = new ArrayList<>();
     public GamePosition(Square[] squares) {
         startPosition(squares);
     }
     private void startPosition(Square[] squares) {
-        piecePositions.add( new PiecePosition(squares[0], new PieceRook(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[1], new PieceKnight(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[2], new PieceBishop(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[3], new PieceQueen(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[4], new PieceKing(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[5], new PieceBishop(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[6], new PieceKnight(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[7], new PieceRook(new PieceColor(false))));
-
-        piecePositions.add( new PiecePosition(squares[8], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[9], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[10], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[11], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[12], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[13], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[14], new PiecePawn(new PieceColor(false))));
-        piecePositions.add( new PiecePosition(squares[15], new PiecePawn(new PieceColor(false))));
-
-        piecePositions.add( new PiecePosition(squares[48], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[49], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[50], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[51], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[52], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[53], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[54], new PiecePawn(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[55], new PiecePawn(new PieceColor())));
-
-        piecePositions.add( new PiecePosition(squares[56], new PieceRook(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[57], new PieceKnight(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[58], new PieceBishop(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[59], new PieceQueen(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[60], new PieceKing(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[61], new PieceBishop(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[62], new PieceKnight(new PieceColor())));
-        piecePositions.add( new PiecePosition(squares[63], new PieceRook(new PieceColor())));
-
-        Piece.setPiecePositions(piecePositions);
         Piece.setSquares(squares);
+        squares[0].setPiece(new PieceRook(new PieceColor(false)));
+        //squares[1].setPiece(new PieceKnight(new PieceColor(false)));
+        //squares[2].setPiece(new PieceBishop(new PieceColor(false)));
+        //squares[3].setPiece(new PieceQueen(new PieceColor(false)));
+        squares[4].setPiece(new PieceKing(new PieceColor(false)));
+        //squares[5].setPiece(new PieceBishop(new PieceColor(false)));
+        //squares[6].setPiece(new PieceKnight(new PieceColor(false)));
+        squares[7].setPiece(new PieceRook(new PieceColor(false)));
 
+        squares[8].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[9].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[10].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[11].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[12].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[13].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[14].setPiece(new PiecePawn(new PieceColor(false)));
+        squares[15].setPiece(new PiecePawn(new PieceColor(false)));
+
+        squares[48].setPiece(new PiecePawn(new PieceColor()));
+        squares[49].setPiece(new PiecePawn(new PieceColor()));
+        squares[50].setPiece(new PiecePawn(new PieceColor()));
+        squares[51].setPiece(new PiecePawn(new PieceColor()));
+        squares[52].setPiece(new PiecePawn(new PieceColor()));
+        squares[53].setPiece(new PiecePawn(new PieceColor()));
+        squares[54].setPiece(new PiecePawn(new PieceColor()));
+        squares[55].setPiece(new PiecePawn(new PieceColor()));
+
+        squares[56].setPiece(new PieceRook(new PieceColor()));
+        // squares[57].setPiece(new PieceKnight(new PieceColor()));
+        // squares[58].setPiece(new PieceBishop(new PieceColor()));
+        // squares[59].setPiece(new PieceQueen(new PieceColor()));
+        squares[60].setPiece(new PieceKing(new PieceColor()));
+        //squares[61].setPiece(new PieceBishop(new PieceColor()));
+        //squares[62].setPiece(new PieceKnight(new PieceColor()));
+        squares[63].setPiece(new PieceRook(new PieceColor()));
     }
 }

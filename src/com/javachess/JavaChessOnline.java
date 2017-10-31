@@ -5,6 +5,7 @@ import com.javachess.screens.LoginScreen;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 import java.awt.CardLayout;
 
 public class JavaChessOnline {
@@ -18,7 +19,7 @@ public class JavaChessOnline {
         new GameScreen(panel);
         frame.setContentPane(panel);
         frame.getContentPane().setBackground(Constants.ApplicationBackground);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(Constants.isResizable);
         frame.pack();
         frame.setVisible(true);

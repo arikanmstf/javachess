@@ -13,7 +13,7 @@ public class PieceBishop extends Piece implements PieceInterface {
     @Override
     public List<PieceMove> getPossibleMoves() {
         // moves calculation at another method because will be used by PieceQueen
-        return PieceBishop.calculatePossibleMoves(this.square);
+        return PieceBishop.calculatePossibleMoves(Piece.squares[index]);
     }
     public static List<PieceMove> calculatePossibleMoves(Square square) {
         int index = square.index;

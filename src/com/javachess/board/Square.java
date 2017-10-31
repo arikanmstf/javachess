@@ -15,10 +15,23 @@ public class Square extends JPanel {
         initialize(color);
     }
 
-    public void setPiece( Piece p) {
+    public void setPiece(Piece p) {
+        empty();
         piece = p;
+        piece.setIndex(index);
         add(piece.iconLabel);
         revalidate();
+        repaint();
+    }
+
+    public void empty() {
+        if (piece != null) {
+            remove(piece.iconLabel);
+            revalidate();
+            repaint();
+            System.out.println("helo®");
+        }
+        piece = null;
     }
 
     private void initialize(Color color) {
